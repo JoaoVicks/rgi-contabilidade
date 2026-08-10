@@ -146,7 +146,7 @@ function LeftContainer() {
 function TopContainer() {
   return (
     <div className="-translate-x-1/2 [word-break:break-word] absolute content-stretch flex flex-col h-[194px] items-center left-[calc(50%-255.5px)] top-[237px] w-[511px]" data-name="Top Container">
-      <p className="font-['Playfair_Display:Medium',sans-serif] font-medium h-[148px] leading-[73.38px] min-w-full relative shrink-0 text-[#880825] text-[73.38px] w-[min-content]">Nossos Conquistas</p>
+      <p className="font-['Playfair_Display:Medium',sans-serif] font-medium h-[148px] leading-[73.38px] min-w-full relative shrink-0 text-[#880825] text-[73.38px] w-[min-content]">Nossas Conquistas</p>
       <p className="-translate-x-1/2 absolute font-['Noto_Sans_Khmer:Light','Noto_Sans:Light','Noto_Sans_Math:Regular','Noto_Sans_Symbols:Light','Noto_Sans_Symbols2:Regular',sans-serif] h-[52.093px] leading-[normal] left-[415px] text-[#71706d] text-[26.39px] text-center top-[148px] w-[568px]" style={{ fontVariationSettings: '"CTGR" 0, "wdth" 100, "wght" 300' }}>
         desde 2007
       </p>

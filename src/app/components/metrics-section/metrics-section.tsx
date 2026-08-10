@@ -309,7 +309,7 @@ export function MetricsSection() {
                 transitionDelay: "110ms",
               }}
             >
-              Nossos Conquistas
+              Nossas Conquistas
             </h2>
             <p
               className="metrics__subheading"
