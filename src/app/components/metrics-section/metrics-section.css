@@ -1,0 +1,259 @@
+/* ── Metrics Section ────────────────────────────────────────────────────── */
+
+.metrics {
+  background: var(--rgi-surface-section);
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+/* ── Decorative background squares ── */
+.metrics__deco {
+  position: absolute;
+  pointer-events: none;
+  border-radius: var(--rgi-radius-md);
+  transition: opacity 700ms ease-out;
+}
+
+.metrics__deco--cream-left {
+  left: -90px;
+  top: 180px;
+  width: 280px;
+  height: 240px;
+  background: var(--rgi-cream);
+}
+
+.metrics__deco--red-left {
+  left: -30px;
+  top: clamp(280px, 32vw, 480px);
+  width: 240px;
+  height: 290px;
+  background: var(--rgi-primary);
+}
+
+.metrics__deco--dark-right {
+  right: -60px;
+  top: 0;
+  width: 200px;
+  height: 170px;
+  background: var(--rgi-primary-darkest);
+  border-radius: 5.28px;
+}
+
+.metrics__deco--cream-right {
+  right: -70px;
+  top: 8px;
+  width: 290px;
+  height: 240px;
+  background: var(--rgi-cream);
+}
+
+.metrics__deco--red-mid-right {
+  right: -130px;
+  top: 260px;
+  width: 290px;
+  height: 240px;
+  background: var(--rgi-primary);
+}
+
+/* Default: hidden. JS sets opacity directly via inline style (retains delay stagger). */
+
+/* ── Content container ── */
+.metrics__inner {
+  max-width: var(--rgi-content-max);
+  margin: 0 auto;
+  padding: 0 174px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Title row ── */
+.metrics__title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(20px, 2.5vw, 40px);
+  margin-bottom: clamp(36px, 5vw, 64px);
+}
+
+.metrics__title-square {
+  background: var(--rgi-primary);
+  border-radius: var(--rgi-radius-md);
+  flex-shrink: 0;
+  margin-top: 10px;
+  /* opacity/transform animated via inline style (scroll reveal) */
+  transition: opacity 500ms ease-out, transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.metrics__heading {
+  font-family: var(--rgi-font-serif);
+  font-weight: 500;
+  font-size: clamp(36px, 5vw, 73.38px);
+  line-height: 1.0;
+  color: var(--rgi-primary);
+  margin-bottom: 6px;
+  /* opacity/transform animated via inline style */
+  transition: opacity 520ms ease-out, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.metrics__subheading {
+  font-family: var(--rgi-font-sans);
+  font-variation-settings: '"wght" 300';
+  font-size: clamp(13px, 1.5vw, 26px);
+  color: var(--rgi-text-body);
+  /* opacity/transform animated via inline style */
+  transition: opacity 520ms ease-out, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Cards grid ── */
+.metrics__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1.08fr 1fr;
+  gap: clamp(10px, 1.4vw, 18px);
+  align-items: start;
+}
+
+.metrics__col--1,
+.metrics__col--2 {
+  margin-top: clamp(20px, 6vw, 80px);
+}
+
+.metrics__col--3 {
+  margin-top: clamp(5px, 1.5vw, 20px);
+}
+
+.metrics__col--4 {
+  margin-top: 0;
+}
+
+/* ── Card base (hover managed via JS due to inView-stagger interaction) ── */
+.metrics__card {
+  border-radius: var(--rgi-radius-md);
+  overflow: hidden;
+  position: relative;
+  cursor: default;
+  /* opacity/transform/shadow animated via inline style */
+}
+
+/* ── Card: Years ── */
+.metrics__card--years {
+  background: var(--rgi-cream);
+  height: clamp(200px, 24vw, 316px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(16px, 2vw, 26px);
+}
+
+.metrics__years-number {
+  position: absolute;
+  top: 0;
+  line-height: 1;
+}
+
+.metrics__years-num-text {
+  font-family: var(--rgi-font-sans);
+  font-variation-settings: '"wght" 700';
+  color: var(--rgi-primary);
+  letter-spacing: -0.08em;
+  display: block;
+  user-select: none;
+}
+
+.metrics__years-label {
+  font-family: var(--rgi-font-sans);
+  font-variation-settings: '"wght" 300';
+  font-size: clamp(13px, 1.4vw, 22px);
+  color: var(--rgi-primary);
+  letter-spacing: -0.07em;
+  line-height: normal;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Card: Photo-based cards ── */
+.metrics__card--photo {
+  height: clamp(200px, 25vw, 343px);
+}
+
+.metrics__card--photo-tall {
+  height: clamp(220px, 30vw, 478px);
+}
+
+.metrics__card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.metrics__card__img--top {
+  object-position: center 20%;
+}
+
+.metrics__card__gradient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.metrics__card__label {
+  position: absolute;
+  bottom: clamp(12px, 1.5vw, 20px);
+  left: clamp(14px, 1.5vw, 18px);
+}
+
+.metrics__card__label-text {
+  font-family: var(--rgi-font-sans);
+  font-variation-settings: '"wght" 500';
+  color: var(--rgi-cream);
+  line-height: 1.15;
+}
+
+/* ── Card: Empresas ── */
+.metrics__card--empresas {
+  background: linear-gradient(180deg, var(--rgi-primary) 65.67%, #41000f 107.34%);
+  height: clamp(240px, 35vw, 526px);
+  display: flex;
+  flex-direction: column;
+  padding: clamp(16px, 2vw, 24px);
+  box-shadow: 0 4px 18px rgba(136, 8, 37, 0.22);
+}
+
+.metrics__empresas-count {
+  font-family: var(--rgi-font-sans);
+  font-variation-settings: '"wght" 700';
+  font-size: clamp(48px, 7vw, 94px);
+  letter-spacing: -0.08em;
+  line-height: 1;
+  background: linear-gradient(180deg, var(--rgi-cream) 37.59%, #9a917d 115.21%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  user-select: none;
+}
+
+.metrics__empresas-label {
+  font-family: var(--rgi-font-sans);
+  font-variation-settings: '"wght" 700';
+  font-size: clamp(13px, 1.6vw, 28px);
+  letter-spacing: -0.045em;
+  color: var(--rgi-cream);
+  line-height: 1.2;
+  margin-top: 6px;
+}
+
+.metrics__empresas-spacer {
+  flex: 1;
+}
+
+.metrics__empresas-divider {
+  margin-bottom: 10px;
+}
+
+.metrics__empresas-wave {
+  height: clamp(40px, 5vw, 70px);
+  overflow: hidden;
+}

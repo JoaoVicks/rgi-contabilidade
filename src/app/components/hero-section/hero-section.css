@@ -1,0 +1,125 @@
+/* ── Hero Section ───────────────────────────────────────────────────────── */
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--rgi-bg-hero);
+}
+
+/* ── Background ── */
+.hero__bg-wrap {
+  position: absolute;
+  top: -10%;
+  bottom: -10%;
+  left: 0;
+  right: 0;
+  will-change: transform;
+}
+
+.hero__bg-float {
+  width: 100%;
+  height: 100%;
+  animation: heroFloat 9s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.hero__bg-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ── Gradient overlays ── */
+.hero__gradient-left {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.44) 38%, rgba(0,0,0,0) 62%);
+  pointer-events: none;
+}
+
+.hero__gradient-bottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.18) 22%, rgba(0,0,0,0) 42%);
+  pointer-events: none;
+}
+
+/* ── Content block ── */
+.hero__content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 120px;
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(24px, 9vw, 228px);
+}
+
+.hero__text-block {
+  max-width: 600px;
+}
+
+/* ── Text elements (entrance animated via JS inline opacity/transform) ── */
+.hero__welcome {
+  font-family: 'Noto Sans Khmer', sans-serif;
+  font-weight: 200;
+  font-size: clamp(16px, 2vw, 33.305px);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: normal;
+  margin-bottom: 4px;
+}
+
+.hero__headline {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size:  3.5rem;
+  line-height: 1.07;
+  color: var(--rgi-cream-light);
+  margin-bottom: clamp(32px, 4vw, 55.92px);
+}
+
+/* ── CTA button (hover/press managed via JS to merge with entrance animation) ── */
+.hero__cta {
+  background: var(--rgi-gold);
+  border-radius: 8.28px;
+  width: 194.573px;
+  padding: 10.35px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.hero__cta:focus-visible {
+  outline: 2px solid rgba(234, 219, 186, 0.7);
+  outline-offset: 4px;
+}
+
+.hero__cta-label {
+  font-family: var(--rgi-font-sans);
+  font-variation-settings: '"CTGR" 0, "wdth" 100, "wght" 500';
+  font-size: 19.183px;
+  color: var(--rgi-primary-deep);
+  white-space: nowrap;
+  line-height: normal;
+}
+
+/* ── Partner logos ── */
+.hero__partners {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(981.529px, 90vw);
+}

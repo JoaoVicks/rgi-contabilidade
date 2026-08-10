@@ -1,0 +1,108 @@
+/* ── Office / Location Section ──────────────────────────────────────────── */
+
+.office {
+  background: var(--rgi-surface);
+  overflow: hidden;
+  padding-top: clamp(48px, 5vw, 65px);
+  padding-bottom: clamp(60px, 6vw, 96px);
+}
+
+.office__inner {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 6vw, 115px);
+}
+
+/* ── Header row: title + button ── */
+.office__header {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 2.5vw, 38px);
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.office__title {
+  font-family: var(--rgi-font-serif);
+  font-weight: 400;
+  font-size: clamp(28px, 2.5vw, 48px);
+  color: var(--rgi-primary);
+  line-height: normal;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ── "Como chegar" link wrapper ── */
+.office__btn-link {
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.office__btn {
+  background: var(--rgi-primary-deep);
+  border-radius: 7.592px;
+  height: clamp(44px, 4vw, 57px);
+  width: clamp(160px, 15vw, 243px);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  outline: none;
+  transition: background var(--rgi-transition-normal), transform 120ms ease-out, box-shadow var(--rgi-transition-normal);
+  box-shadow: 0 2px 10px rgba(81, 7, 24, 0.25);
+}
+
+.office__btn:hover {
+  background: var(--rgi-primary-hover);
+  box-shadow: 0 4px 16px rgba(81, 7, 24, 0.32);
+}
+
+.office__btn:active {
+  background: var(--rgi-primary-pressed);
+  transform: scale(0.97) translateY(1px);
+  box-shadow: none;
+}
+
+.office__btn-label {
+  font-family: var(--rgi-font-sans);
+  font-variation-settings: '"wght" 400';
+  font-size: clamp(16px, 1.25vw, 24px);
+  color: #ffffff;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+/* ── Supporting text ── */
+.office__subtext {
+  font-family: var(--rgi-font-sans);
+  font-variation-settings: '"wght" 400';
+  font-size: clamp(15px, 1.25vw, 24px);
+  color: #7e7e7e;
+  line-height: normal;
+  margin: 0 0 clamp(40px, 4.5vw, 66px);
+  max-width: 1162px;
+}
+
+/* ── Map ── */
+.office__map {
+  border-radius: var(--rgi-radius-lg);
+  overflow: hidden;
+  width: 100%;
+  max-width: 1553px;
+  height: clamp(280px, 40vw, 698px);
+  position: relative;
+}
+
+.office__map-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 133.5%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}

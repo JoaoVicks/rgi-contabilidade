@@ -1,0 +1,65 @@
+/* ── RGI Contabilidade Design Tokens ─────────────────────────────────────── */
+
+:root {
+  /* Colors — Brand */
+  --rgi-primary: #880825;
+  --rgi-primary-deep: #510718;
+  --rgi-primary-darkest: #36040f;
+  --rgi-primary-hover: #6a0920;
+  --rgi-primary-pressed: #3d0511;
+
+  /* Colors — Surfaces */
+  --rgi-bg-hero: #0a0005;
+  --rgi-surface: #fffdf8;
+  --rgi-surface-white: #fffefd;
+  --rgi-surface-card: #fff8e8;
+  --rgi-surface-chip: #fffaed;
+  --rgi-surface-section: #ffffff;
+
+  /* Colors — Cream / Gold */
+  --rgi-cream: #fff0ce;
+  --rgi-cream-light: #fffcf5;
+  --rgi-gold: #eadbba;
+  --rgi-gold-amber: #6b4900;
+
+  /* Colors — Text */
+  --rgi-text-body: #71706d;
+  --rgi-text-secondary: #7c7c7c;
+  --rgi-text-review-body: #866f3a;
+  --rgi-text-review-name: #8f7232;
+  --rgi-text-trust: #651628;
+  --rgi-placeholder: #c8c6c2;
+
+  /* Colors — Utility */
+  --rgi-star: #ffc765;
+  --rgi-error: #c0392b;
+  --rgi-border-default: #ededed;
+  --rgi-border-focus: var(--rgi-primary-deep);
+
+  /* Typography */
+  --rgi-font-sans: 'Noto Sans', sans-serif;
+  --rgi-font-serif: 'Playfair Display', serif;
+
+  /* Border Radius */
+  --rgi-radius-xs: 5.756px;
+  --rgi-radius-sm: 6px;
+  --rgi-radius-md: 7.295px;
+  --rgi-radius-card: 7.799px;
+  --rgi-radius-lg: 10px;
+  --rgi-radius-xl: 12px;
+  --rgi-radius-pill: 11.657px;
+
+  /* Shadows */
+  --rgi-shadow-card: 0 2px 10px rgba(0, 0, 0, 0.07);
+  --rgi-shadow-card-hover: 0 20px 48px rgba(0, 0, 0, 0.18), 0 6px 16px rgba(0, 0, 0, 0.1);
+  --rgi-shadow-cta: 0 4px 16px rgba(136, 8, 37, 0.35), 0 1px 4px rgba(0, 0, 0, 0.2);
+
+  /* Transitions */
+  --rgi-transition-fast: 140ms ease-out;
+  --rgi-transition-normal: 200ms ease-out;
+  --rgi-transition-slow: 300ms ease-out;
+
+  /* Content Container */
+  --rgi-content-max: 1440px;
+  --rgi-content-pad: clamp(24px, 9.1vw, 174px);
+}
