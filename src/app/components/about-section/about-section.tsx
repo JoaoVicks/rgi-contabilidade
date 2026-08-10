@@ -350,7 +350,7 @@ function DesktopCanvas({ inView, scale }: { inView: boolean; scale: number }) {
             gap: "32px",
             alignItems: "center",
             textAlign: "center",
-            paddingTop: "72px",
+            paddingTop: "50px",
           }}
           initial={{ opacity: 0, y: 18 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
@@ -379,7 +379,7 @@ function DesktopCanvas({ inView, scale }: { inView: boolean; scale: number }) {
             left: 0,
             top: "261px",
             width: "100%",
-            height: "901.115px",
+            height: "900px",
           }}
         >
           <div style={{ position: "absolute", inset: "-0.39% -0.18%" }}>
@@ -446,9 +446,8 @@ function DesktopCanvas({ inView, scale }: { inView: boolean; scale: number }) {
               style={{ display: "block", width: "100%", height: "100%" }}
             >
               <motion.line
-                pathLength={1}
                 stroke="#E2D3B4"
-                strokeDasharray="1 1"
+                strokeDasharray="10 20"
                 strokeLinecap="round"
                 strokeOpacity="0.43"
                 strokeWidth="6.95848"

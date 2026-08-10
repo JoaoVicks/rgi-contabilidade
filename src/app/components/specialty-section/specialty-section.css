@@ -39,7 +39,7 @@
 .specialty__content {
   max-width: 1148px;
   margin: 0 auto;
-  padding: clamp(72px, 10.8vw, 156px) clamp(24px, 5vw, 60px) 0;
+  padding: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,12 +58,12 @@
 }
 
 .specialty__quote {
-  font-family: var(--rgi-font-sans);
-  font-variation-settings: '"CTGR" 0, "wdth" 100, "wght" 400';
+  font-family: 'Noto Sans Khmer', sans-serif;
+  font-weight: 400;
   font-size: clamp(15px, 1.7vw, 22px);
   color: var(--rgi-text-body);
   max-width: min(910px, 88vw);
-  line-height: 1.6;
+  line-height: 1.2;
   margin: 0;
   /* entrance animated via inline style */
 }
@@ -92,7 +92,7 @@
 }
 
 .specialty__chip-label {
-  font-family: var(--rgi-font-sans);
+  font-family: 'Noto Sans Khmer', sans-serif;;
   font-variation-settings: '"CTGR" 0, "wdth" 100, "wght" 500';
   color: var(--rgi-primary);
   font-size: 17.549px;
@@ -230,7 +230,7 @@
 }
 
 .specialty__cta-btn-label {
-  font-family: var(--rgi-font-sans);
+  font-family: 'Noto Sans Khmer', sans-serif;;
   font-variation-settings: '"CTGR" 0, "wdth" 100, "wght" 500';
   font-size: 21.212px;
   color: var(--rgi-primary-deep);

@@ -183,7 +183,8 @@ function CardEmpresas({ inView }: { inView: boolean }) {
       </div>
 
       <div className="metrics__empresas-spacer" />
-
+      
+      <div className="dashed-line"></div>
       <div className="metrics__empresas-divider">
         <svg
           width="356"
@@ -276,10 +277,6 @@ export function MetricsSection() {
       <div
         className="metrics__deco metrics__deco--red-left"
         style={{ opacity: inView ? 1 : 0, transitionDelay: "200ms" }}
-      />
-      <div
-        className="metrics__deco metrics__deco--dark-right"
-        style={{ opacity: inView ? 1 : 0, transitionDelay: "0ms" }}
       />
       <div
         className="metrics__deco metrics__deco--cream-right"
