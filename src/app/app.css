@@ -165,6 +165,7 @@
 /* ── Mobile drawer ── */
 .mobile-menu {
   position: fixed;
+  width: 100vw;
   inset: 0;
   z-index: 40;
   display: flex;
@@ -173,6 +174,7 @@
 
 .mobile-menu__backdrop {
   position: absolute;
+  width: 100vw;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
