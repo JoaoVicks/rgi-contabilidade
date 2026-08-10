@@ -1,8 +1,15 @@
 /* ── Hero Section ───────────────────────────────────────────────────────── */
 
 @keyframes heroFloat {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-14px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
 }
 
 .hero {
@@ -43,14 +50,14 @@
 .hero__gradient-left {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.44) 38%, rgba(0,0,0,0) 62%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.44) 38%, rgba(0, 0, 0, 0) 62%);
   pointer-events: none;
 }
 
 .hero__gradient-bottom {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.18) 22%, rgba(0,0,0,0) 42%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.18) 22%, rgba(0, 0, 0, 0) 42%);
   pointer-events: none;
 }
 
@@ -82,7 +89,7 @@
 .hero__headline {
   font-family: 'Playfair Display', serif;
   font-weight: 400;
-  font-size:  3.5rem;
+  font-size: 3.5rem;
   line-height: 1.07;
   color: var(--rgi-cream-light);
   margin-bottom: clamp(32px, 4vw, 55.92px);
@@ -123,3 +130,54 @@
   transform: translateX(-50%);
   width: min(981.529px, 90vw);
 }
+
+/* ── Mobile / Tablet Responsive Adjustments ── */
+@media (max-width: 767px) {
+  .hero {
+    min-height: 670px;
+  }
+
+  .hero__content {
+    bottom: 110px;
+    padding: 0 20px;
+    justify-content: flex-start;
+  }
+
+  .hero__text-block {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .hero__welcome {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .hero__headline {
+    font-size: clamp(26px, 7.5vw, 32px);
+    line-height: 1.18;
+    margin-bottom: 24px;
+  }
+
+  .hero__cta {
+    width: auto;
+    min-width: 140px;
+    padding: 10px 24px;
+    border-radius: 5px;
+  }
+
+  .hero__cta-label {
+    font-size: 14px;
+  }
+
+  .hero__partners {
+    bottom: 24px;
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 360px) {
+  .hero__headline {
+    font-size: 24px;
+  }
+}

@@ -297,40 +297,36 @@ export function ServicesSection({
       className="services"
       style={{
         height: isMobile ? "auto" : "clamp(520px, 52vw, 880px)",
-        minHeight: isMobile ? "680px" : "unset",
       }}
     >
-      {/* Full-width background photo */}
-      <img
-        src={backgroundImage}
-        alt=""
-        className="services__bg"
-        style={{
-          opacity: inView ? 1 : 0,
-          transform: inView ? "scale(1)" : "scale(1.04)",
-        }}
-      />
+      {/* Full-width background photo (Desktop only) */}
+      {!isMobile && (
+        <img
+          src={backgroundImage}
+          alt=""
+          className="services__bg"
+          style={{
+            opacity: inView ? 1 : 0,
+            transform: inView ? "scale(1)" : "scale(1.04)",
+          }}
+        />
+      )}
 
-      <div aria-hidden className="services__overlay" />
+      {!isMobile && <div aria-hidden className="services__overlay" />}
 
-      {/* "Como ajudamos você" label */}
-      <div
-        className="services__label"
-        style={{
-          opacity: inView ? 1 : 0,
-          transform: inView ? "translateY(0)" : "translateY(-10px)",
-        }}
-      >
-        <span className="services__label-text">Como ajudamos você</span>
+      {/* Header Block (Title & Subtitle) */}
+      <div className="services__header">
+        <span className="services__label-text">COMO AJUDAMOS VOCÊ</span>
+        <h2 className="services__heading">Nossos Serviços</h2>
       </div>
 
       {/* Carousel */}
       <div
         className="services__carousel-wrap"
         style={{
-          top: isMobile ? "clamp(80px, 14%, 120px)" : "clamp(80px, 12%, 112px)",
-          bottom: isMobile ? "80px" : "clamp(90px, 13%, 108px)",
-          left: `${cardStart}px`,
+          top: isMobile ? "0" : "clamp(80px, 12%, 112px)",
+          bottom: isMobile ? "0" : "clamp(90px, 13%, 108px)",
+          left: isMobile ? "0" : `${cardStart}px`,
           opacity: inView ? 1 : 0,
           transform: inView ? "translateY(0)" : "translateY(24px)",
         }}
@@ -338,6 +334,7 @@ export function ServicesSection({
         <div
           className="services__drag-surface"
           style={{ cursor: isDragging ? "grabbing" : "grab" }}
+
           onMouseDown={(e) => onDragStart(e.clientX)}
           onMouseMove={(e) => onDragMove(e.clientX)}
           onMouseUp={onDragEnd}
