@@ -484,6 +484,126 @@ export function ReviewsSection() {
   const [inView, setInView] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
+  // Mobile: unify reviews data and control active review
+  const allReviews = [...ROW1, ...ROW2];
+  const [activeReview, setActiveReview] = useState(0);
+  const pointer = useRef<{startX: number; currentX: number; dragging: boolean}>({
+    startX: 0,
+    currentX: 0,
+    dragging: false,
+  });
+  const mobileTrackRef = useRef<HTMLDivElement | null>(null);
+
+  const mobileInnerRef = useRef<HTMLDivElement | null>(null);
+  const posRef = useRef(0); // current translateX in px
+  const velRef = useRef(0);
+  const rafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const el = mobileTrackRef.current;
+    if (!el) return;
+
+    function onPointerDown(e: PointerEvent) {
+      pointer.current.dragging = true;
+      pointer.current.startX = e.clientX;
+      el.setPointerCapture(e.pointerId);
+    }
+
+    function onPointerMove(e: PointerEvent) {
+      if (!pointer.current.dragging) return;
+      pointer.current.currentX = e.clientX;
+    }
+
+    function onPointerUp(e: PointerEvent) {
+      if (!pointer.current.dragging) return;
+      pointer.current.dragging = false;
+      const delta = e.clientX - pointer.current.startX;
+      const threshold = Math.max(40, window.innerWidth * 0.08);
+      if (delta < -threshold) {
+        setActiveReview((s) => Math.min(s + 1, allReviews.length - 1));
+      } else if (delta > threshold) {
+        setActiveReview((s) => Math.max(s - 1, 0));
+      }
+    }
+
+    el.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("pointermove", onPointerMove);
+    window.addEventListener("pointerup", onPointerUp);
+
+    return () => {
+      el.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", onPointerUp);
+    };
+  }, [allReviews.length]);
+
+  // spring animation to animate translateX of mobileInnerRef towards target
+  useEffect(() => {
+    const inner = mobileInnerRef.current;
+    const container = mobileTrackRef.current;
+    if (!inner || !container) return;
+
+    const stiffness = 320; // spring stiffness
+    const damping = 28; // damping
+
+    const getTarget = () => {
+      const cw = container.clientWidth;
+      return -activeReview * cw;
+    };
+
+    let lastTime = performance.now();
+
+    function step(now: number) {
+      const dt = Math.min(64, now - lastTime) / 1000; // seconds
+      lastTime = now;
+
+      const target = getTarget();
+      const pos = posRef.current;
+      const vel = velRef.current;
+
+      const force = stiffness * (target - pos);
+      const dampingForce = -damping * vel;
+      const accel = (force + dampingForce);
+
+      const newVel = vel + accel * dt;
+      const newPos = pos + newVel * dt;
+
+      posRef.current = newPos;
+      velRef.current = newVel;
+
+      // apply transform
+      inner.style.transform = `translateX(${newPos}px)`;
+
+      const done = Math.abs(newVel) < 0.5 && Math.abs(target - newPos) < 0.5;
+      if (!done) {
+        rafRef.current = requestAnimationFrame(step);
+      } else {
+        // snap to target
+        posRef.current = target;
+        velRef.current = 0;
+        inner.style.transform = `translateX(${target}px)`;
+        rafRef.current = null;
+      }
+    }
+
+    if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(step);
+
+    const onResize = () => {
+      // When resize, snap position to target
+      const tgt = getTarget();
+      posRef.current = tgt;
+      velRef.current = 0;
+      inner.style.transform = `translateX(${tgt}px)`;
+    };
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [activeReview]);
+
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
@@ -541,8 +661,48 @@ export function ReviewsSection() {
       </div>
 
       {/* CTA */}
+      {/* Mobile single-card presentation (visible only on max-width:767px) */}
       <div
-        className="reviews__cta-row"
+        className="reviews__mobile"
+        style={{
+          opacity: inView ? 1 : 0,
+          transform: inView ? "translateY(0)" : "translateY(8px)",
+          transition:
+            "opacity 400ms ease-out 550ms, transform 400ms ease-out 550ms",
+        }}
+      >
+        <div className="reviews__mobile-track" ref={mobileTrackRef}>
+          <div className="reviews__mobile-track-inner" ref={mobileInnerRef}>
+            {allReviews.map((review, i) => (
+              <div className="reviews__mobile-slide" key={i}>
+                <ReviewCard review={review} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="reviews__mobile-pagination" role="tablist" aria-label="Avaliações">
+          {allReviews.map((_, i) => (
+            <button
+              key={i}
+              className={`reviews__mobile-dot ${i === activeReview ? "is-active" : ""}`}
+              aria-label={`Mostrar avaliação ${i + 1}`}
+              aria-pressed={i === activeReview}
+              onClick={() => setActiveReview(i)}
+            />
+          ))}
+        </div>
+
+        <div className="reviews__mobile-cta-row">
+          <button className="reviews__cta reviews__cta--mobile">
+            <span className="reviews__cta-label">ver todas as avaliações</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop CTA (preserved, hidden on mobile via CSS) */}
+      <div
+        className="reviews__cta-row reviews__cta-row--desktop"
         style={{
           opacity: inView ? 1 : 0,
           transform: inView ? "translateY(0)" : "translateY(8px)",
