@@ -168,7 +168,7 @@ function ServiceCard({
       className={`services__card${isActive ? " services__card--active" : ""}`}
       style={{
         width: `${cardWidth}px`,
-        boxShadow: isActive
+        boxShadow:isActive
           ? "0px 4px 50px 10px rgba(0,0,0,0.1)"
           : "0px 2px 16px rgba(0,0,0,0.05)",
         filter: isActive ? "none" : "blur(2.5px) brightness(0.85)",
@@ -222,6 +222,8 @@ export function ServicesSection({
   const sectionRef = useRef<HTMLElement>(null);
   const dragRef = useRef({ isDragging: false, startX: 0, last: 0 });
   const [dragOffset, setDragOffset] = useState(0);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const [measuredSlot, setMeasuredSlot] = useState<number | null>(null);
 
   useEffect(() => {
     const update = () => {
@@ -286,8 +288,33 @@ export function ServicesSection({
     setDragOffset(0);
   }, [active]);
 
+  // Measure actual slot (card width + gap) to avoid sub-pixel drift during transforms
+  useEffect(() => {
+    const measure = () => {
+      const track = trackRef.current;
+      if (!track) {
+        setMeasuredSlot(null);
+        return;
+      }
+      const first = track.children[0] as HTMLElement | undefined;
+      const gapVal = gap;
+      if (first) {
+        const w = first.getBoundingClientRect().width;
+        setMeasuredSlot(w + gapVal);
+      } else {
+        setMeasuredSlot(cardW + gapVal);
+      }
+    };
+    measure();
+    const onR = () => measure();
+    window.addEventListener("resize", onR);
+    return () => window.removeEventListener("resize", onR);
+  }, [cardW, gap]);
+
   const isDragging = dragOffset !== 0;
-  const trackX = -active * slot + dragOffset;
+  // Prefer a measured slot (card actual width + gap) to avoid cumulative pixel drift
+  const effectiveSlot = measuredSlot ?? slot;
+  const trackX = -active * effectiveSlot + dragOffset;
 
   return (
     <section
@@ -350,11 +377,12 @@ export function ServicesSection({
             className="services__track"
             style={{
               gap: `${gap}px`,
-              transform: `translateX(${trackX}px)`,
+              transform: `translate3d(${trackX}px,0,0)`,
               transition: isDragging
                 ? "none"
                 : "transform 280ms cubic-bezier(0.22,1,0.36,1)",
             }}
+            ref={trackRef}
           >
             {SERVICES.map((svc, i) => (
               <ServiceCard
