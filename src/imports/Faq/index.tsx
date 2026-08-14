@@ -107,7 +107,7 @@ function Frame() {
     <div className="content-stretch flex gap-[19.462px] items-center relative shrink-0">
       <IconContainer />
       <p className="[word-break:break-word] font-['Noto_Sans_Khmer:Medium','Noto_Sans:Medium',sans-serif] leading-[normal] relative shrink-0 text-[#6b4900] text-[21.76px] text-center whitespace-nowrap" style={{ fontVariationSettings: '"CTGR" 0, "wdth" 100, "wght" 500' }}>
-        Como eu faço para abrir uma empresa ?
+        Como eu faço para abrir uma empresa?
       </p>
     </div>
   );

@@ -134,7 +134,7 @@ function scrollTo(id: string) {
 const NAV_LINKS = [
   { label: "Resultados", id: "resultados" },
   { label: "Serviços", id: "servicos" },
-  { label: "Sobre nós", id: "sobre" },
+  { label: "Sobre Nós", id: "sobre" },
   { label: "FAQ", id: "faq" },
 ];
 
@@ -154,7 +154,7 @@ export function Footer() {
               <RgiLogo />
             </button>
             <p className="footer__tagline">
-              Helping businesses grow with secure accounting solutions.
+              Ajudando empresas a crescer com segurança.
             </p>
           </div>
 
@@ -187,7 +187,7 @@ export function Footer() {
               >
                 <MapIcon />
                 <span className="footer__contact-text">
-                  avenida domenico perella, 53
+                  Avenida Domenico Perella, 53
                 </span>
               </a>
 

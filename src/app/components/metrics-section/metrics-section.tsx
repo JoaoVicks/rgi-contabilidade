@@ -227,7 +227,7 @@ function CardRelacionamento({ inView }: { inView: boolean }) {
     >
       <img
         src={imgRelacionamento}
-        alt="Relacionamento ao longo prazo"
+        alt="Relacionamento de longo prazo"
         className="metrics__card__img metrics__card__img--top"
       />
       <div
@@ -251,7 +251,7 @@ function CardRelacionamento({ inView }: { inView: boolean }) {
         >
           relacionamento
           <br />
-          ao longo prazo
+          de longo prazo
         </p>
       </div>
     </div>

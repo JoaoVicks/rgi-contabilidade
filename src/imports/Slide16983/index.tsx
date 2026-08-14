@@ -3851,7 +3851,7 @@ function Frame105() {
         </svg>
       </div>
       <p className="[word-break:break-word] font-['Noto_Sans_Khmer:Light','Noto_Sans:Light',sans-serif] leading-[normal] min-w-full relative shrink-0 text-[21.262px] text-white w-[min-content]" style={{ fontVariationSettings: '"CTGR" 0, "wdth" 100, "wght" 300' }}>
-        Helping businesses grow with secure accounting solutions.
+        Ajudando empresas a crescer com segurança.
       </p>
     </div>
   );
@@ -3875,7 +3875,7 @@ function Frame108() {
         Serviços
       </p>
       <p className="relative shrink-0 w-full" style={{ fontVariationSettings: '"CTGR" 0, "wdth" 100, "wght" 300' }}>
-        Sobre nós
+        Sobre Nós
       </p>
       <p className="relative shrink-0 w-full" style={{ fontVariationSettings: '"CTGR" 0, "wdth" 100, "wght" 300' }}>
         FAQ
@@ -3916,7 +3916,7 @@ function Frame110() {
     <div className="content-stretch flex gap-[14px] items-center relative shrink-0">
       <MapFoldNavigationMapMapsGpsTravelFold />
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Noto_Sans_Khmer:Light','Noto_Sans:Light','Noto_Sans_Math:Regular','Noto_Sans_Symbols:Light','Noto_Sans_Symbols2:Regular',sans-serif] leading-[normal] relative shrink-0 text-[#eadbba] text-[22px] w-[298px]" style={{ fontVariationSettings: '"CTGR" 0, "wdth" 100, "wght" 300' }}>
-        avenida domenico perella, 53
+        Avenida Domenico Perella, 53
       </p>
     </div>
   );

@@ -66,7 +66,7 @@ const FAQ_DATA: Record<Category, FaqEntry[]> = {
   ],
   "abertura de empresa": [
     {
-      q: "Como eu faço para abrir uma empresa ?",
+      q: "Como eu faço para abrir uma empresa?",
       a: "O processo de abertura de empresa envolve a escolha do tipo jurídico, registro na Junta Comercial, obtenção do CNPJ, inscrições estadual e municipal, e obtenção dos alvarás necessários. A RGI acompanha cada etapa para garantir um processo ágil e sem complicações.",
     },
     {
@@ -83,7 +83,7 @@ const FAQ_DATA: Record<Category, FaqEntry[]> = {
     },
     {
       q: "Quais são as obrigações fiscais de uma nova empresa?",
-      a: "Uma empresa recém aberta deve cumprir obrigações fiscais mensais, trimestrais e anuais, que variam conforme o regime tributário adotado. Entre as principais estão o recolhimento de impostos, entrega de declarações ao Fisco e cumprimento de obrigações trabalhistas. A RGI garante que sua empresa esteja sempre em dia.",
+      a: "Uma empresa recém-aberta deve cumprir obrigações fiscais mensais, trimestrais e anuais, que variam conforme o regime tributário adotado. Entre as principais estão o recolhimento de impostos, entrega de declarações ao Fisco e cumprimento de obrigações trabalhistas. A RGI garante que sua empresa esteja sempre em dia.",
     },
   ],
   "serviço de imposto": [
@@ -160,7 +160,7 @@ const listVariants = {
     opacity: 1,
     transition: { staggerChildren: 0.055, delayChildren: 0 },
   },
-  exit: { opacity: 0, transition: { duration: 0.15, ease: "easeIn" } },
+  exit: { opacity: 0, transition: { duration: 0.15, ease: "easeIn" } } as const,
 };
 
 const itemVariants = {
@@ -168,7 +168,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.42, ease: "easeOut" },
+    transition: { duration: 0.42, ease: "easeOut" } as const,
   },
 };
 
@@ -292,7 +292,7 @@ export function FaqSection() {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          Ficou com alguma dúvida ?
+          Ficou com alguma dúvida?
         </motion.h2>
 
         {/* Subtitle */}

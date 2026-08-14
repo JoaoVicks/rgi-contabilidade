@@ -53,7 +53,7 @@ export function HeroSection({ onScrollTo }: Props) {
       <div className="hero__content" style={{ top: HEADER_HEIGHT }}>
         <div className="hero__text-block">
           <p style={fadeUp(0)} className="hero__welcome">
-            Seja bem vindo
+            Seja bem-vindo
           </p>
 
           <p style={fadeUp(150)} className="hero__headline">

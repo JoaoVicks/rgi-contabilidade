@@ -151,14 +151,22 @@ export default function App() {
     if (ticking.current) return;
     ticking.current = true;
     requestAnimationFrame(() => {
-      const y = window.scrollY;
+      const root = document.getElementById("root") as HTMLElement | null;
+      const y = root ? root.scrollTop : window.scrollY;
       setScrolled(y > 40);
+
       let current = "";
       for (const link of NAV_LINKS) {
         const el = document.getElementById(link.id);
         if (!el) continue;
         const rect = el.getBoundingClientRect();
-        if (rect.top <= window.innerHeight * 0.45) current = link.id;
+        if (root) {
+          const rootRect = root.getBoundingClientRect();
+          const relativeTop = rect.top - rootRect.top;
+          if (relativeTop <= root.clientHeight * 0.45) current = link.id;
+        } else {
+          if (rect.top <= window.innerHeight * 0.45) current = link.id;
+        }
       }
       setActiveSection(current);
       ticking.current = false;
@@ -166,9 +174,11 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    const root = document.getElementById("root") as HTMLElement | null;
+    const target: EventTarget = root ?? window;
+    target.addEventListener("scroll", handleScroll as EventListener, { passive: true });
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => target.removeEventListener("scroll", handleScroll as EventListener);
   }, [handleScroll]);
 
   useEffect(() => {

@@ -156,7 +156,7 @@ On the right side, display the contact information shown in the design.
 
 Address:
 
-"avenida domenico perella, 53"
+"Avenida Domenico Perella, 53"
 
 Phone:
 
