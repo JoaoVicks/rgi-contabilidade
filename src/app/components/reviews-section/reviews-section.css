@@ -334,6 +334,9 @@
   .reviews__mobile-cta-row { display:flex; justify-content:center; }
   .reviews__cta--mobile { padding: 10px 18px; }
   .reviews__cta-row--desktop { display: none; }
+
+  .reviews__cta { background: var(--rgi-transparent); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); border: 2px solid var(--rgi-primary); width: 100%; padding: 10px 18px; }
+  .reviews__cta-label { color: var(--rgi-primary); font-size: 19.183px; }
 }
 
 @media (min-width: 768px) {

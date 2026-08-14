@@ -174,10 +174,18 @@
     bottom: 24px;
     width: calc(100% - 40px);
   }
+  
+  .hero__cta {
+    background: var(--rgi-primary);
+  }
+
+  .hero__cta-label {
+    color: var(--rgi-gold);
+  }
 }
 
 @media (max-width: 360px) {
   .hero__headline {
     font-size: 24px;
   }
-}
+}
