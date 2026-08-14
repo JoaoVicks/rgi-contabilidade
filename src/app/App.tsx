@@ -53,7 +53,14 @@ type NavItemProps = {
 
 function NavItem({ label, id, active, onClick }: NavItemProps) {
   return (
-    <button onClick={() => onClick(id)} className="navbar__nav-item group">
+    <a
+      href={`#${id}`}
+      onClick={(e) => {
+        e.preventDefault();
+        onClick(id);
+      }}
+      className="navbar__nav-item group"
+    >
       <span
         className={`navbar__nav-label ${active ? "navbar__nav-label--active" : "navbar__nav-label--inactive"}`}
       >
@@ -64,7 +71,7 @@ function NavItem({ label, id, active, onClick }: NavItemProps) {
         style={{ width: active ? "100%" : "0%" }}
         aria-hidden
       />
-    </button>
+    </a>
   );
 }
 
@@ -103,13 +110,15 @@ function MobileMenu({ open, activeSection, onClose, onNav }: MobileMenuProps) {
         style={{ transform: open ? "translateY(0)" : "translateY(-100%)" }}
       >
         {NAV_LINKS.map((link) => (
-          <button
+          <a
             key={link.id}
-            className="mobile-menu__link"
-            onClick={() => {
+            href={`#${link.id}`}
+            onClick={(e) => {
+              e.preventDefault();
               onNav(link.id);
               onClose();
             }}
+            className="mobile-menu__link"
           >
             <span
               className={`mobile-menu__link-label ${
@@ -125,7 +134,7 @@ function MobileMenu({ open, activeSection, onClose, onNav }: MobileMenuProps) {
               style={{ width: activeSection === link.id ? "100%" : "0%" }}
               aria-hidden
             />
-          </button>
+          </a>
         ))}
         <button
           className="mobile-menu__cta"

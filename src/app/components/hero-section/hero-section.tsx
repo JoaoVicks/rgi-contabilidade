@@ -56,9 +56,9 @@ export function HeroSection({ onScrollTo }: Props) {
             Seja bem-vindo
           </p>
 
-          <p style={fadeUp(150)} className="hero__headline">
+          <h1 style={fadeUp(150)} className="hero__headline">
             A contabilidade que anda do seu lado
-          </p>
+          </h1>
 
           {/* CTA: entrance animation merges with hover, so we keep all state here */}
           <button

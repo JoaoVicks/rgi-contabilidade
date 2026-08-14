@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: replace the sitemap URL with the real domain
+Sitemap: https://YOUR_DOMAIN_HERE/sitemap.xml

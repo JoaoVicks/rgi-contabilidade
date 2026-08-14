@@ -10,6 +10,11 @@ body,
   overflow-x: hidden;
 }
 
+/* Ensure anchor navigation accounts for fixed header */
+section[id] {
+  scroll-margin-top: 90px;
+}
+
 .app-root {
   position: relative;
   width: 100vw;

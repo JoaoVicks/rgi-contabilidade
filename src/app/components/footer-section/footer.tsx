@@ -165,13 +165,17 @@ export function Footer() {
               <p className="footer__links-heading">Links rápidos</p>
               <div className="footer__links-list">
                 {NAV_LINKS.map((link) => (
-                  <button
+                  <a
                     key={link.id}
                     className="footer__nav-link"
-                    onClick={() => scrollTo(link.id)}
+                    href={`#${link.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollTo(link.id);
+                    }}
                   >
                     {link.label}
-                  </button>
+                  </a>
                 ))}
               </div>
             </div>

@@ -431,8 +431,9 @@ function ReviewCard({ review }: { review: Review }) {
           <div className="reviews__card__avatar">
             <img
               alt={review.name}
-              src={review.avatar}
-              className="reviews__card__avatar-img"
+                src={review.avatar}
+                className="reviews__card__avatar-img"
+                loading="lazy"
             />
           </div>
           <p className="reviews__card__name">{review.name}</p>
