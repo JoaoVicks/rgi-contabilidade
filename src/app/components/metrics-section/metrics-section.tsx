@@ -300,7 +300,7 @@ export function MetricsSection() {
               transitionDelay: "0ms",
             }}
           />
-          <div>
+          <div className="metrics__text-block">
             <h2
               className="metrics__heading"
               style={{

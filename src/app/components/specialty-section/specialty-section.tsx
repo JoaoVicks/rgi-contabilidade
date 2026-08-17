@@ -348,15 +348,17 @@ export function SpecialtySection({
 
       {/* Main content */}
       <div className="specialty__content">
-        <h2 className="specialty__title" style={fadeUp(80)}>
-          Nossa Especialidade
-        </h2>
+        <div className="container-text">
+          <h2 className="specialty__title" style={fadeUp(80)}>
+            Nossa Especialidade
+          </h2>
 
-        <p className="specialty__quote" style={fadeUp(180)}>
-          "Com mais de dez anos de experiência, ajudamos empresas da construção
-          civil a expandir suas operações de maneira segura e sustentável,
-          assegurando resultados duradouros."
-        </p>
+          <p className="specialty__quote" style={fadeUp(180)}>
+            "Com mais de dez anos de experiência, ajudamos empresas da
+            construção civil a expandir suas operações de maneira segura e
+            sustentável, assegurando resultados duradouros."
+          </p>
+        </div>
 
         <div className="specialty__chips" style={fadeUp(280)}>
           <Chip
@@ -399,7 +401,7 @@ export function SpecialtySection({
               onClick={() => onScrollTo("contato")}
             >
               <span className="specialty__cta-btn-label">agendar reunião</span>
-              <CalendarIcon />
+              <img className="specialty__cta-btn-icon" src="src\assets\icons\calendar-icon.svg" alt="Calendar" />
             </button>
           </div>
         </div>
