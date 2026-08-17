@@ -297,6 +297,14 @@
   .metrics__title-row {
     gap: 16px;
     margin-bottom: 32px;
+    width:100%;
+    justify-content: center;
+  }
+  .metrics__text-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .metrics__heading {

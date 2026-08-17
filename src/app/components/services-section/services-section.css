@@ -31,12 +31,15 @@
 /* ── Header Block ── */
 .services__header {
   position: absolute;
-  top: clamp(24px, 6%, 56px);
+  top: clamp(20px, 6%, 56px);
   left: clamp(24px, 8%, 124px);
   z-index: 10;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  background-color: var(--rgi-primary-deep);
+  gap: 2px;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
 }
 
 .services__label-text {
@@ -46,15 +49,15 @@
   line-height: 16px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #880825;
+  color: var(--rgi-cream);
 }
 
 .services__heading {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  font-size: 38px;
+  font-size: 34px;
   line-height: 44px;
-  color: #510718;
+  color: var(--rgi-cream);
   margin: 0;
 }
 
