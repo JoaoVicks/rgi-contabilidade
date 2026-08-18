@@ -568,11 +568,11 @@ function DesktopCanvas({ inView, scale }: { inView: boolean; scale: number }) {
 }
 
 const MOBILE_PHOTOS = [
-  { src: imgImage1, imgLeft: "-24.87%", imgWidth: "149.19%" },
-  { src: imgImage2, imgLeft: "-47.91%", imgWidth: "154.55%" },
-  { src: imgImage3, imgLeft: "-47.91%", imgWidth: "154.55%" },
-  { src: imgImage4, imgLeft: "-19.49%", imgWidth: "154.55%" },
-  { src: imgImage, imgLeft: "-47.91%", imgWidth: "154.55%" },
+  { src: imgImage1 },
+  { src: imgImage2 },
+  { src: imgImage3 },
+  { src: imgImage4 },
+  { src: imgImage },
 ];
 
 const MOBILE_ICONS = [SvgLaw, SvgDiamond, SvgBank, SvgWallet, SvgCoin];
@@ -624,7 +624,6 @@ function MobileLayout({ inView }: { inView: boolean }) {
                   alt=""
                   src={photo.src}
                   className="about__mobile-photo-img"
-                  style={{ left: photo.imgLeft, top: 0, width: photo.imgWidth }}
                 />
                 <div aria-hidden className="about__mobile-photo-gradient" />
               </motion.div>

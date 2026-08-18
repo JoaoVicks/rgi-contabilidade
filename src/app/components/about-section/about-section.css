@@ -108,7 +108,9 @@
 .about__mobile-photo-img {
   position: absolute;
   height: 100%;
-  max-width: none;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .about__mobile-photo-gradient {
