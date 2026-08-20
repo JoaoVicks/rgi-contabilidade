@@ -180,9 +180,6 @@ importers:
         specifier: 1.1.2
         version: 1.1.2(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
-      '@rollup/rollup-win32-x64-msvc':
-        specifier: 4.62.4
-        version: 4.62.4
       '@tailwindcss/vite':
         specifier: 4.1.12
         version: 4.1.12(vite@6.3.5(jiti@2.7.0)(lightningcss@1.30.1))
@@ -3644,7 +3641,8 @@ snapshots:
   '@rollup/rollup-win32-x64-gnu@4.62.4':
     optional: true
 
-  '@rollup/rollup-win32-x64-msvc@4.62.4': {}
+  '@rollup/rollup-win32-x64-msvc@4.62.4':
+    optional: true
 
   '@tailwindcss/node@4.1.12':
     dependencies:
