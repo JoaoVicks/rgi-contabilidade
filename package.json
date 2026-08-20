@@ -5,7 +5,7 @@
   "type": "module",
   "packageManager": "pnpm@11.21.0",
   "scripts": {
-    "build": "node -e \"console.log(require('fs').readFileSync('node_modules/rollup/dist/native.js','utf8'))\" && vite build",
+    "build": "find node_modules -maxdepth 5 -type d -name '*rollup*' -print && vite build",
     "dev": "vite"
   },
   "dependencies": {
