@@ -23,7 +23,7 @@ export function OfficeSection() {
           obs.disconnect();
         }
       },
-      { threshold: 0.08 }
+      { threshold: 0.08 },
     );
 
     obs.observe(el);
@@ -39,16 +39,10 @@ export function OfficeSection() {
         <motion.div
           className="office__header"
           initial={{ opacity: 0, y: 16 }}
-          animate={
-            inView
-              ? { opacity: 1, y: 0 }
-              : { opacity: 0, y: 16 }
-          }
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <h2 className="office__title">
-            Visite nosso escritório
-          </h2>
+          <h2 className="office__title">Visite nosso escritório</h2>
 
           <motion.a
             href={MAPS_URL}
@@ -64,9 +58,7 @@ export function OfficeSection() {
             }}
           >
             <button className="office__btn">
-              <span className="office__btn-label">
-                como chegar
-              </span>
+              <span className="office__btn-label">como chegar</span>
             </button>
           </motion.a>
         </motion.div>
@@ -74,29 +66,21 @@ export function OfficeSection() {
         <motion.p
           className="office__subtext"
           initial={{ opacity: 0, y: 10 }}
-          animate={
-            inView
-              ? { opacity: 1, y: 0 }
-              : { opacity: 0, y: 10 }
-          }
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{
             duration: 0.5,
             delay: 0.18,
             ease: "easeOut",
           }}
         >
-          Prefere conversar pessoalmente? Nossa equipe está pronta
-          para recebê-lo e ajudar com suas necessidades contábeis.
+          Prefere conversar pessoalmente? Nossa equipe está pronta para
+          recebê-lo e ajudar com suas necessidades contábeis.
         </motion.p>
 
         <motion.div
           className="office__map"
           initial={{ opacity: 0, y: 14 }}
-          animate={
-            inView
-              ? { opacity: 1, y: 0 }
-              : { opacity: 0, y: 14 }
-          }
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
           transition={{
             duration: 0.6,
             delay: 0.28,
@@ -105,16 +89,15 @@ export function OfficeSection() {
           aria-label={`Mapa da localização do escritório RGI em ${OFFICE_ADDRESS}`}
         >
           <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1216.237201342577!2d-46.4185187327354!3d-24.01012274581442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce1db5d434b33f%3A0x36ece218ec9fddd0!2sAv.%20Brasil%2C%20600%20-%20Sl%20709%20-%20Boqueir%C3%A3o%2C%20Praia%20Grande%20-%20SP%2C%2011701-090!5e0!3m2!1spt-BR!2sbr!4v1787240602818!5m2!1spt-BR!2sbr"
             title="Localização da RGI Contabilidade no Google Maps"
             width="100%"
             height="100%"
             style={{ border: 0 }}
-            loading="lazy"
             allowFullScreen
-            src={`https://www.google.com/maps/embed/v1/place?key=${mapsApiKey}&q=${encodeURIComponent(
-              OFFICE_ADDRESS
-            )}`}
-          />
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+          ></iframe>
         </motion.div>
       </div>
     </section>

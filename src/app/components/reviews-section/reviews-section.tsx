@@ -487,7 +487,11 @@ export function ReviewsSection() {
   // Mobile: unify reviews data and control active review
   const allReviews = [...ROW1, ...ROW2];
   const [activeReview, setActiveReview] = useState(0);
-  const pointer = useRef<{startX: number; currentX: number; dragging: boolean}>({
+  const pointer = useRef<{
+    startX: number;
+    currentX: number;
+    dragging: boolean;
+  }>({
     startX: 0,
     currentX: 0,
     dragging: false,
@@ -563,7 +567,7 @@ export function ReviewsSection() {
 
       const force = stiffness * (target - pos);
       const dampingForce = -damping * vel;
-      const accel = (force + dampingForce);
+      const accel = force + dampingForce;
 
       const newVel = vel + accel * dt;
       const newPos = pos + newVel * dt;
@@ -681,7 +685,11 @@ export function ReviewsSection() {
           </div>
         </div>
 
-        <div className="reviews__mobile-pagination" role="tablist" aria-label="Avaliações">
+        <div
+          className="reviews__mobile-pagination"
+          role="tablist"
+          aria-label="Avaliações"
+        >
           {allReviews.map((_, i) => (
             <button
               key={i}
@@ -695,7 +703,11 @@ export function ReviewsSection() {
 
         <div className="reviews__mobile-cta-row">
           <button className="reviews__cta reviews__cta--mobile">
-            <span className="reviews__cta-label">ver todas as avaliações</span>
+            <a href="https://www.google.com/search?client=opera-gx&sca_esv=00209973f30c6862&sxsrf=APpeQnuhIlnSeP3tPUF8X_OiDdXi-rskuQ:1787243271000&q=avalia%C3%A7%C3%B5es+sobre+rgi+contabilidade&uds=AJ5uw1_hkWEsoFNshJDB7Mdu6kkc8BIkfz_PK_Wq3RiimqchEbrz71j1n-uPT_BwGRNmCE7ivBc9GPo1OZBGzim1w83miR75SL8vUDmiu-QWyR52i_fTN7N6MFcNjPKls0FXPpgDdUOb05SrdoccRB1ZHCR6b609eNJN2MgoBTDBKyF6CUJIkM04zurSDKqE2c13493hbopUM-Z-58ySIJVPI_wP099eoBVDSBFNbe9EQCu_2-xgS4oRdqMlMCCEHFVuKF3rQnC9Ht0E-1Kn7UM6sLwLRoVVURANsAUbXwp44P-xCuVSkGuu2FViaJi_ZmRYi0aFO9gvGm423BMMXyruJf1mNATf9PpjSLsRxKzjDNfuELy27yU8n2LtERjQ3y9VvEwkgJwLdDynHzCa2fZffgenw95a0qNXksysoT_cMRrUc6yc5ObbWGGiKKuFcebsRBYKUOux00JA2j2Clg1jzFKFyiGwYDO886gSXFepTSy9YCFSAgVTE5uNmXVKHBRJ6VzEks9J&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-__jigdKnqA6-A8DNBkJm3z74B-nnYxdjUtcjUNd1rya2uxMu-EPj5HQjC_SyUpb75d_GO4NwacVoBXfBQRvgYn8doNWOrjteSHNaJS8jRiXpCBRk_A%3D%3D&sa=X&ved=2ahUKEwiZy62C0K-WAxV7rZUCHaLLHBoQk8gLegQIGhAB&ictx=1&biw=360&bih=732&dpr=3#ebo=1">
+              <span className="reviews__cta-label">
+                ver todas as avaliações
+              </span>
+            </a>
           </button>
         </div>
       </div>
@@ -711,7 +723,9 @@ export function ReviewsSection() {
         }}
       >
         <button className="reviews__cta">
-          <span className="reviews__cta-label">ver todas as avaliações</span>
+          <a href="https://www.google.com/search?client=opera-gx&q=rgi+contabilidade&sourceid=opera&ie=UTF-8&oe=UTF-8#lrd=0x94ce1dbd507ea2e5:0xab9f7df00df451b9,1,,,,">
+            <span className="reviews__cta-label">ver todas as avaliações</span>
+          </a>
         </button>
       </div>
     </section>
