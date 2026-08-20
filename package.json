@@ -5,7 +5,7 @@
   "type": "module",
   "packageManager": "pnpm@11.21.0",
   "scripts": {
-    "build": "vite build",
+    "build": "node -e \"console.log(require('fs').readFileSync('node_modules/rollup/dist/native.js','utf8'))\" && vite build",
     "dev": "vite"
   },
   "dependencies": {
