@@ -5,7 +5,7 @@
   "type": "module",
   "packageManager": "pnpm@11.21.0",
   "scripts": {
-    "build": "find node_modules -maxdepth 5 -type d -name '*rollup*' -print && vite build",
+    "build": "ls -la node_modules/.pnpm/ | grep rollup; ls -la node_modules/.pnpm/@rollup+rollup-linux-x64-gnu@4.62.4/node_modules/@rollup/rollup-linux-x64-gnu || true",
     "dev": "vite"
   },
   "dependencies": {
